@@ -31,5 +31,5 @@ jobs:
             aws lambda update-function-code --function-name example-lambda-aws-cli --zip-file fileb://lambda_function.zip
           else
             echo "Function does not exist, creating..."
-            aws lambda create-function --function-name example-lambda-aws-cli --runtime nodejs18.x --handler index.handler --zip-file fileb://lambda_function.zip
+            aws lambda create-function --function-name example-lambda-aws-cli --runtime nodejs18.x --handler index.handler --zip-file fileb://lambda_function.zip --role arn:aws:iam::927096366770:role/lambda-git-deployer
           fi
