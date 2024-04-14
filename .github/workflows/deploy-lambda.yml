@@ -26,7 +26,7 @@ jobs:
         run: zip -r lambda_function.zip .
       - name: Deploy to AWS Lambda
         run: |
-          if aws lambda get-function --function-name example-lambda-aws-cli; then
+          if aws lambda get-function --function-name example-lambda-aws-cli > /dev/null 2>&1; then
             echo "Function exists, updating..."
             aws lambda update-function-code --function-name example-lambda-aws-cli --zip-file fileb://lambda_function.zip
           else
